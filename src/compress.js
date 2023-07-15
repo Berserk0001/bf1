@@ -7,10 +7,10 @@ function compress(req, res, input) {
   sharp(input)
     .grayscale(req.params.grayscale)
     .toFormat(format, {
-      quality: 5,
+      quality: req.params.quality,
+      effort: 1,
       progressive: true,
-      optimizeScans: true,
-      chromaSubsampling: '4:2:0'
+      optimizeScans: true
     })
     .toBuffer((err, output, info) => {
       if (err || !info || res.headersSent) {
