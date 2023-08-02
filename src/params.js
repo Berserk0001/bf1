@@ -11,7 +11,7 @@ function params(req, res, next) {
   const cleanedUrl = urls.replace(/http:\/\/1\.1\.\d\.\d\/bmi\/(https?:\/\/)?/i, 'http://');
 
   req.params.url = cleanedUrl;
-  req.params.webp = !jpeg;
+  req.params.heif = !jpeg;
   req.params.grayscale = bw !== '0';
   req.params.quality = parseInt(l, 10) || DEFAULT_QUALITY;
 
