@@ -2,14 +2,13 @@ const sharp = require('sharp');
 const redirect = require('./redirect');
 
 function compress(req, res, input) {
-  const format = req.params.webp ? 'webp' : 'jpeg';
+  const format = req.params.heif ? 'heif' : 'jpeg';
 
   sharp(input)
     .grayscale(req.params.grayscale)
     .toFormat(format, {
       quality: req.params.quality,
-      effort: 1,
-      lossless: true
+      effort: 1
     })
     .toBuffer((err, output, info) => {
       if (err || !info || res.headersSent) {
