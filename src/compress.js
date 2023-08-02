@@ -8,7 +8,7 @@ function compress(req, res, input) {
   req.params.quality = Math.ceil(compressionQuality);
 
 
-  sharp(input)
+ return sharp(input)
     .grayscale(req.params.grayscale)
     .toFormat(format, {
       quality: req.params.quality,
