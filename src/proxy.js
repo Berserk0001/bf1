@@ -36,7 +36,7 @@ function proxy(req, res) {
       if (shouldCompress(req)) {
         compress(req, res, buffer);
       } else {
-        throw new Error("Couldn't process");
+        bypass(req, res, buffer);
       }
     }
   );
