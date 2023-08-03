@@ -16,7 +16,7 @@ function compress(req, res, input) {
     })
     .toBuffer((err, output, info) => {
       if (err || !info || res.headersSent) {
-        throw new Error("Couldn't process");
+        throw new Error(null);
       }
 
       res.setHeader('content-type', `image/${format}`);
