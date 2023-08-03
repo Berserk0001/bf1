@@ -25,7 +25,7 @@ function proxy(req, res) {
     },
     (err, origin, buffer) => {
       if (err || origin.statusCode >= 400) {
-        throw new Error("Couldn't process");
+        throw new Error(null);
       }
 
       copyHeaders(origin, res);
