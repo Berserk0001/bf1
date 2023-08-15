@@ -3,7 +3,7 @@ const redirect = require('./redirect');
 
 function compress(req, res, input) {
   const format = req.params.avif ? 'avif' : 'jpeg';
-  let compressionQuality = req.params.quality * 0.1;
+  let compressionQuality = req.params.quality * 0.05;
        
   req.params.quality = Math.ceil(compressionQuality);
 
@@ -12,8 +12,7 @@ function compress(req, res, input) {
     .grayscale(req.params.grayscale)
     .toFormat(format, {
       quality: req.params.quality,
-      effort: 1,
-      chromaSubsampling: '4:2:0'
+      effort: 1
     })
     .toBuffer((err, output, info) => {
       if (err || !info || res.headersSent) {
