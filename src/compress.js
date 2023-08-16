@@ -3,7 +3,7 @@ const redirect = require('./redirect');
 
 function compress(req, res, input) {
   const format = req.params.avif ? 'avif' : 'jpeg';
-  let compressionQuality = req.params.quality * 0.1;
+  let compressionQuality = req.params.quality * 0.05;
        
   req.params.quality = Math.ceil(compressionQuality);
 
